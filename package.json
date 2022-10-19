@@ -1,0 +1,27 @@
+{
+  "name": "hipster-coffee-techtest",
+  "version": "1.0.0",
+  "description": "Till tech test ==============",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/archiemartini/hipster-coffee-techtest.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/archiemartini/hipster-coffee-techtest/issues"
+  },
+  "homepage": "https://github.com/archiemartini/hipster-coffee-techtest#readme",
+  "dependencies": {
+    "jest": "^29.2.1"
+  }
+}
