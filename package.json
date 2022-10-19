@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/archiemartini/hipster-coffee-techtest#readme",
   "dependencies": {
+    "dotenv": "^16.0.3",
     "jest": "^29.2.1"
   }
 }

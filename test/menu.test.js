@@ -16,4 +16,12 @@ describe('the Menu class', () => {
     expect(menu.showMenu()).toEqual(expected)
   })
 
+  it('gives the price of a given item', () => {
+    expect(menu.price("Cafe Latte")).toEqual(4.75)
+  })
+
+  it('confirms the presence of an item', () => {
+    expect(menu.isContainingItem("Cafe Latte")).toEqual(true)
+  })
+
 })

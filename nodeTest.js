@@ -11,10 +11,9 @@ receipt = new Receipt(menu)
 order = new Order(menu, receipt)
 till = new Till(menu, order, receipt)
 
-order.addItems("Cafe Latte", 1)
-order.addItems("Cortado", 2)
-order.addItems("Chocolate Chip Muffin", 4)
-order.addItems("Tiramisu", 1)
+order.addItems("Tea", 1)
+
+// menu.isContainingItem("Tea")
 
 order.itemPrices()
 order.total()
