@@ -8,7 +8,7 @@ Specification
 
 This is what a sample receipt looks like:
 
-![a receipt](./images/receipt.jpg)
+![a receipt](./images/receipt.jpeg)
 
 
 Version 1
