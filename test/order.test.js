@@ -1,22 +1,18 @@
 const Order = require('../lib/order')
 const Menu = require('../lib/menu')
-const Receipt = require('../lib/receipt')
 const { prices } = require('../hipstercoffee.json')
 //extract json data from array
 const items = prices[0]
 
 jest.mock('../lib/menu')
-jest.mock('../lib/receipt')
 
 describe('the Order class', () => {
 
   let mockMenu;
-  let mockReceipt;
   let order;
   beforeEach(() => {
     mockMenu = new Menu(items)
-    mockReceipt = new Receipt()
-    order = new Order(mockMenu, mockReceipt)
+    order = new Order(mockMenu)
 
     mockMenu.isContainingItem = jest.fn().mockImplementation(() => true)
     mockMenu.price = jest.fn().mockImplementationOnce(() => 4.75).mockImplementation(() => 3.65)

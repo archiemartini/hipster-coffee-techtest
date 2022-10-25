@@ -3,12 +3,13 @@ const Receipt = require('./lib/receipt')
 const Menu = require('./lib/menu')
 const Order = require('./lib/order')
 const { prices } = require('./hipstercoffee.json')
+const shopInfo = require('./hipstercoffee.json')
 //extract json data from array
 const items = prices[0]
 
 menu = new Menu(items)
-receipt = new Receipt(menu)
-order = new Order(menu, receipt)
+order = new Order(menu)
+receipt = new Receipt(menu, order, shopInfo)
 till = new Till(menu, order, receipt)
 
 order.addItems("Tea", 1)
@@ -17,3 +18,8 @@ order.addItems("Tea", 1)
 
 order.itemPrices()
 order.total()
+
+receipt.logItemList()
+order.showItems()
+
+receipt.generateReceipt()

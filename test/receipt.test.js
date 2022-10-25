@@ -1,21 +1,39 @@
+const Menu = require('../lib/menu')
+const Order = require('../lib/order')
+const Receipt = require('../lib/receipt')
+const { prices } = require('../hipstercoffee.json')
+//extract json data from array
+const items = prices[0]
+
+jest.mock('../lib/menu')
+jest.mock('../lib/order')
+
 describe('the Receipt class', () => {
+
+  let mockMenu;
+  let mockOrder;
+  let receipt;
+  beforeEach(() => {
+    mockMenu = new Menu(items)
+    mockOrder = new Order(mockMenu)
+    receipt = new Receipt(mockMenu, mockOrder)
+
+    Menu.mockClear
+    Order.mockClear
+    mockMenu.price = jest.fn().mockImplementation(() => 3.65)
+    mockOrder.showItems = jest.fn().mockImplementation(() => { Tea: 1 })
+  })
   
-  it('', () => {
+  // it('generates an Item List', () => {
+    
+  //   expect(receipt.generateItemList()).toEqual([ 'Tea   1 x 3.65' ])
+  //   expect(mockMenu.price).toHaveBeenCalledTimes(1)
+  //   expect(mockOrder.showItems).toHaveBeenCalledTimes(1)
+  // })
+
+  it('logs cafe info', () => {
     
   })
 
-  it('calculates dinner with Tom correctly', () => {
-    let oyster = 21 / 3
-    let lunch = 20
-    let bread = 4.5 / 2
-    let gruner = 36 / 4
-    let albillo = 43 / 4
-    let burgundy = 60 / 4
-    let johnDory = 27
-    let mellisaki = 45 / 4
-
-    const result = (oyster + lunch + bread + gruner + albillo + burgundy + johnDory + mellisaki)
-    expect(result).toEqual(102.25)
-  })
-
+  
 })
