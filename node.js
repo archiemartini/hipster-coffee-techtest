@@ -13,6 +13,9 @@ receipt = new Receipt(menu, order, shopInfo)
 till = new Till(menu, order, receipt)
 
 order.addItems("Tea", 1)
+order.addItems("Cappucino", 3)
+order.addItems("Choc Mudcake", 2)
+order.addItems("Blueberry Muffin", 1)
 
 // menu.isContainingItem("Tea")
 

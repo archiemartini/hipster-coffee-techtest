@@ -21,8 +21,11 @@ describe('the Receipt class', () => {
     mockOrder = new Order(mockMenu)
     receipt = new Receipt(mockMenu, mockOrder, shopInfo)
 
-    mockMenu.price = jest.fn().mockImplementation(() => 3.65)
-    mockOrder.showItems = jest.fn(() => { Tea: 1 })
+    jest.spyOn(mockOrder, 'showItems')
+    jest.spyOn(mockMenu, 'price')
+
+    mockOrder.showItems = jest.fn().mockImplementation(() => { Tea: 1 })
+    mockMenu.price = jest.fn().mockImplementation((item) => 3.65)
     
     Menu.mockClear()
     Order.mockClear()
@@ -31,20 +34,21 @@ describe('the Receipt class', () => {
 
   describe('the generateReceipt function', () => {
 
-    it('calls all relative functions correctly', () => {
-      receipt.generateReceipt()
-      expect(receipt.logTimeAndShop)
-      expect(receipt.logLineBreak)
-      expect(receipt.logShopInfo)
-      expect(receipt.logFullStop)
-      expect(receipt.logItemList)
-    })
-
-    // it('generates an Item List', () => {
-    //   expect(receipt.logItemList()).toEqual([ 'Tea   1 x 3.65' ])
-    //   expect(mockMenu.price).toHaveBeenCalledTimes(1)
-    //   expect(mockOrder.showItems).toHaveBeenCalledTimes(1)
+    // it('calls all relative functions correctly', () => {
+    //   receipt.generateReceipt()
+    //   expect(receipt.logTimeAndShop)
+    //   expect(receipt.logLineBreak)
+    //   expect(receipt.logShopInfo)
+    //   expect(receipt.logFullStop)
+    //   expect(receipt.logItemList)
     // })
+
+    it('generates an Item List', () => {
+      receipt.logItemList()
+
+      expect(mockOrder.showItems).toHaveBeenCalledTimes(1)
+      expect(mockMenu.price).toHaveBeenCalledWith('Tea')
+    })
     
   })
   
@@ -53,7 +57,7 @@ describe('the Receipt class', () => {
 
     test('function logShopInfo', () => {
       receipt.logShopInfo()
-      expect(console.log).toBeCalledTimes(2)
+      expect(console.log).toBeCalledTimes(1)
       expect(console.log.mock.calls[0][0]).toEqual("123 Lakeside Way")
       expect(console.log.mock.calls[1][0]).toEqual("+1 (650) 360-0708")
 
