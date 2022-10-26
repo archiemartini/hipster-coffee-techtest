@@ -16,10 +16,10 @@ order.addItems("Tea", 1)
 
 // menu.isContainingItem("Tea")
 
-order.itemPrices()
-order.total()
+// order.itemPrices()
+// order.total()
 
-receipt.logItemList()
-order.showItems()
+// receipt.logItemList()
+// order.showItems()
 
 receipt.generateReceipt()
