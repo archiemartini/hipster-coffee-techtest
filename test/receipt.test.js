@@ -57,7 +57,7 @@ describe('the Receipt class', () => {
 
     test('function logShopInfo', () => {
       receipt.logShopInfo()
-      expect(console.log).toBeCalledTimes(1)
+      expect(console.log).toBeCalledTimes(2)
       expect(console.log.mock.calls[0][0]).toEqual("123 Lakeside Way")
       expect(console.log.mock.calls[1][0]).toEqual("+1 (650) 360-0708")
 
